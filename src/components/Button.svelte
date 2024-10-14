@@ -1,6 +1,4 @@
-<!-- SubmitButton.svelte -->
 <script lang="ts">
-	export let color: string = '#2C2F47';
 	export let onClick: () => void;
 </script>
 

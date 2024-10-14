@@ -110,7 +110,7 @@
 	<Checkbox bind:checked={formData.agreeToTerms} onChange={handleCheckboxChange} label="I accept" />
 
 	<div style="margin-top: 10px">
-		<Button color="#2C2F47" onClick={submitForm}>Send</Button>
+		<Button onClick={submitForm}>Send</Button>
 	</div>
 
 	{#if notificationVisible}

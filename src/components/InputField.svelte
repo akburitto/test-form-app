@@ -15,11 +15,6 @@
 
 <div class="form__group">
 	<div class="form__input-container">
-		{#if label}
-			<label for={name} class="form__label">
-				{label}{#if isMandatory}<span>*</span>{/if}
-			</label>
-		{/if}
 		{#if type === 'textarea'}
 			<textarea
 				id={name}
@@ -40,6 +35,11 @@
 				class="form__input"
 			/>
 		{/if}
+		{#if label}
+			<label for={name} class="form__label">
+				{label}{#if isMandatory}<span>*</span>{/if}
+			</label>
+		{/if}
 	</div>
 	{#if error}
 		<p class="form__error-message">{error}</p>
@@ -47,6 +47,16 @@
 </div>
 
 <style>
+	.form__group {
+		margin-bottom: 1rem;
+		width: 100%;
+	}
+
+	.form__input-container {
+		display: flex;
+		flex-direction: column-reverse; /* Visually move the label above the input */
+	}
+
 	.form__input {
 		appearance: none;
 		width: 100%;
@@ -65,11 +75,6 @@
 		border-bottom-color: #fff;
 	}
 
-	.form__group {
-		margin-bottom: 1rem;
-		width: 100%;
-	}
-
 	.form__label {
 		display: block;
 		margin-bottom: 0.5rem;
@@ -78,7 +83,7 @@
 		transition: color 0.3s;
 	}
 
-	.form__input:focus + .form__label {
+	input:focus + label {
 		color: #fff;
 	}
 
